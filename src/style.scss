@@ -1,0 +1,3945 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+$primary_yellow_color: #fbd600;
+$primary_black_color: #000000;
+$primary_grey_color: #ddd;
+
+$primary_text_color: #000000;
+$primary_text_second_color: #ffffff;
+
+$primary_icon_color: #231f20;
+
+$sidenav_fontsize: 16px;
+
+$breakpoint-device-large: 1440px;
+$breakpoint-device: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 500px;
+
+
+* {
+    box-sizing: border-box;
+}
+html  {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    background: url('assets/img/bg-split.png') repeat;
+    padding: 2rem 2.5rem;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+header {
+    .top-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1rem;
+        
+        .link-wrapper {
+            text-align: center;
+            padding: 0.5rem 1.3rem;
+            background-color: $primary_yellow_color;
+
+            a {
+                text-decoration: none;
+                font-weight: 600;
+                color: $primary_text_color;
+            }
+
+            &:hover {
+                box-shadow: 1px 1px 10px #aaa;
+                cursor: pointer;
+            }
+        }
+    }
+}
+main {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+.sidenav {
+    margin-right: 1.5rem;
+    z-index: 10001;
+
+    .logo-wrapper {
+        text-decoration: none;
+        color: #000;
+
+        img {
+            width: 200px;
+        }
+
+        div {
+            text-align: center;
+            font-size: 44px;
+            border-bottom: 1px solid $primary_text_color;
+            text-decoration: none;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .menu-wrapper {
+        margin-top: 2rem;
+        ul.menu {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 0;
+            li {
+                margin: .5rem 0;
+                list-style: none;
+                
+                .img-wrap {
+                    padding-bottom: .5rem;
+                    background-color: #fbd600;
+                    width: 200px;
+                    height: 170px;
+                    display: none;
+                    position: relative;
+
+                    .indicator {
+                        position: absolute;
+                        right: -1rem;
+                        width: 12px;
+                        height: 2px;
+                        background-color: #000;
+                    }
+                }
+
+                a {
+                    display: block;
+                    margin: 0 1.5rem;
+                    text-decoration: none;
+                    color: $primary_text_color;
+                    font-size: $sidenav_fontsize;
+                    border-bottom: 1px solid $primary_text_color;
+                }
+
+                &.active {
+                    .img-wrap {
+                        display: flex;
+                        align-items: center;
+
+                        .img-black-icon {
+                            display: block;
+                            width: 80px;
+                            height: 80px;
+                            background-color: #000000;
+                            margin: 0 auto;
+
+                            img {
+                                width: 80px;
+                                height: 80px;
+                            }
+                        }
+                    }
+
+                    a {
+                        margin-top: 1rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    .social-wrapper {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 1rem;
+
+        .social-icon-wrap {
+            img {
+                width: 30px;
+                height: auto;
+                box-shadow: 2px 2px 5px #999;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.page-content {
+    width: 100%;
+    padding: 1.5rem;
+    background-color: rgba(128,128,128, 0.1);
+    position: relative;
+}
+
+.page-wrapper-show {
+    background-color: rgb(000, 000, 000);
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    transition: opacity 1000ms;
+}
+
+.page {
+    min-height: calc(100vh - 140px);
+    &.notfound {
+        display: flex;
+        align-items: center;
+
+        .container {
+            margin: 0 auto;
+
+            .inner-content {
+                h1 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &.splash {
+        display: flex;
+        align-items: center;
+
+        .container {
+            width: 100%;
+
+            .inner-content {
+                .wrapper {
+                    max-width: 850px;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+
+                    .text {
+                        text-align: right;
+                        font-size: 80px;
+                        margin-right: 2rem;
+
+                        .text1 {
+                            margin-bottom: 1rem;
+                        }
+
+                        .text2 {
+                            font-weight: bold;
+                            margin-bottom: 1rem;
+                        }
+
+                        .text3 {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .logo {
+                        img {
+                            width: 220px;
+                        }
+                    }
+                }
+                .loading-wrap {
+                    margin-top: 5rem;
+                    .loading {
+                        margin: 0 auto;
+                        width: 250px;
+
+                        .loading-bar {
+                            height: 30px;
+                            border: 4px solid #333;
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 0 2px;
+
+                            div {
+                                width: 9%;
+                                margin-top: 2px;
+                                margin-bottom: 2px;
+                            }
+
+                            .loading-cube1 {
+                                background-color: #333;
+                            }
+
+                            .loading-cube2 {
+                                background-color: #666;
+                            }
+
+                            .loading-cube3 {
+                                background-color: #aaa;
+                            }
+
+                            .loading-cube4 {
+                                background-color: #eee;
+                            }
+                        }
+
+                        .loading-text {
+                            text-align: center;
+                            font-weight: bold;
+                            margin-top: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.home {
+        display: flex;
+        align-items: center;
+
+        .container {
+            margin: 0 auto;
+        }
+
+        nav {
+            margin: auto;
+            
+            .menu-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                // flex-wrap: wrap;
+
+                a {
+                    display: block;
+                    text-align: center;
+                    margin: 0 0.5rem;
+                    margin-bottom: 2rem;
+                    padding: 2rem;
+                    font-size: 12px;
+                    text-decoration: none;
+                    background-color: $primary_yellow_color;
+                    position: relative;
+                    width: 12%;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .menu-item-title {
+                        position: absolute;
+                        bottom: -2.5rem;
+                        left: 0;
+                        width: 100%;
+                        color: #000;
+                        font-weight: bold;
+
+                        .menu-item-underline-logo {
+                            border-bottom: 1px solid #000;
+                        }
+                    }
+
+                    &:hover {
+                        box-shadow: 1px 1px 10px #aaa;
+                    }
+                }
+
+                a.logo {
+                    padding: 3rem;
+                    width: 15%;
+
+                    .menu-item-title-logo {
+                        position: absolute;
+                        bottom: 1rem;
+                        left: 0;
+                        width: 100%;
+                        font-size: 26px;
+                        color: #000;
+                    }
+                }
+            }
+
+            .menu-description {
+                margin-top: 2rem;
+                text-align: center;
+                font-size: 30px;
+
+                .desc2 {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    &.auth {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+            .wrapper {
+                padding: 3rem;
+                background-color: $primary_yellow_color;
+                box-shadow: 1px 1px 10px #ddd;
+
+                .auth-form {
+                    form {
+                        .field-wrapper {
+                            display: flex;
+                            width: 100%;
+                            justify-content: space-between;
+                            padding: .5rem 0;
+                            align-items: flex-end;
+                            flex-wrap: wrap;
+                            .form-group {
+                                &.md-5 {
+                                    width: 35%;
+                                }
+
+                                &.md-3 {
+                                    width: 30%;
+
+                                    input {
+                                        margin-bottom: 0.5rem;
+                                    }
+                                }
+
+                                &.md-2 {
+                                    width: 20%;
+                                }
+                                label {
+                                    display: block;
+                                    padding-bottom: 6px;
+                                }
+                                input {
+                                    width: 100%;
+                                    padding: 5px 8px;
+                                }
+                                input.input-mc-primary {
+                                    padding: 5px 8px;
+                                    
+                                    border: none;
+                                    background-color: $primary_black_color;
+                                    color: $primary_text_second_color;
+                                }
+                                input.btn-mc {
+                                    padding: 5px 8px;
+                                    border: none;
+                                    background-color: $primary_black_color;
+                                    color: $primary_yellow_color;
+                                    cursor: pointer;
+                                }
+                            }
+
+                            .terms {
+                                display: flex;
+                                justify-content: flex-start;
+
+                                input {
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+
+                    .auth-help-text {
+                        display: flex;
+                        justify-content: space-between;
+
+                        button {
+                            padding: 5px 8px;
+                            border: none;
+                            background-color: $primary_black_color;
+                            color: $primary_yellow_color;
+                            cursor: pointer;
+                            margin-top: 3.5rem;
+                        }
+                    }
+                }
+
+                .divider {
+                    border-bottom: 1px solid #000;
+                    height: 1px;
+                    padding: 1rem 0;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    &.about {
+        .container {
+            .wrapper {
+                .featured-image {
+                    width: 100%;
+                    height: 200px;
+                    background: url('assets/img/featured/featured-image-about.png') no-repeat;
+                    background-size: cover;
+                }
+
+                .inner-content {
+                    margin-top: 2rem;
+
+                    .tap-wrap {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+
+                        .tab-icon {
+                            display: flex;
+                            align-items: center;
+                            background-color: #fbd600;
+                            font-size: 16px;
+                            font-weight: 600;
+                            width: 19% ;
+                            padding: 3.5% 0;
+                            box-shadow: 1px 1px 10px #ddd;
+                            
+                            div {
+                                margin: 0 auto;
+                                text-align: center;
+                            }
+
+                            &.active {
+                                background-color: #000;
+                                color: #fbd600;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                                box-shadow: 1px 1px 10px #aaa;
+                            }
+                        }
+                    }
+
+                    .tab-content {
+                        margin-top: 1.5rem;
+
+                        .tab-content-wrap {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .pic-wrap {
+                                width: 58%;
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .blog-wrap {
+                                column-count: 2;
+                                font-size: 18px;
+                                margin-left: 2rem;
+                                width: 55%;
+
+                                div {
+                                    font-size: 22px;
+                                    font-weight: bold;
+                                    margin-bottom: 2rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.product {
+        .container {
+            .wrapper {
+                .featured-image {
+                    width: 100%;
+                    height: 200px;
+                    background: url('assets/img/featured/featured-image-product.png') no-repeat;
+                    background-size: cover;
+                }
+
+                .inner-content {
+                    margin-top: 2rem;
+
+                    .tap-wrap {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+
+                        .tab-icon {
+                            display: flex;
+                            align-items: center;
+                            background-color: #fbd600;
+                            font-size: 16px;
+                            font-weight: 600;
+                            width: 11.5% ;
+                            height:110px;
+                            padding: 3% 5px;
+                            box-shadow: 1px 1px 10px #ddd;
+                            
+                            div {
+                                margin: 0 auto;
+                                text-align: center;
+                            }
+
+                            &.active {
+                                background-color: #000;
+                                color: #fbd600;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                                box-shadow: 1px 1px 10px #aaa;
+                            }
+                        }
+                    }
+
+                    .tab-content {
+                        margin-top: 1.5rem;
+
+                        .tab-content-wrap {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .blog {
+                                width: 100%;
+                                font-size: 18px;
+                                column-count: 3;
+                                word-break: break-all;
+
+                                div {
+                                    font-weight: bold;
+                                    margin-bottom: 2rem;
+                                }
+                            }
+
+                            .picture {
+                                width: 50%;
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.network {
+        .container {
+            .wrapper {
+                .featured-image {
+                    width: 100%;
+                    height: 200px;
+                    background: url('assets/img/featured/featured-image-network.png') no-repeat;
+                    background-size: cover;
+                }
+
+                .inner-content {
+                    margin-top: 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    
+                    .agent-wrap {
+                        width: 20%;
+
+                        .title {
+                            font-weight: bold;
+                            margin-bottom: 1rem;
+                            font-size: 22px;
+                        }
+
+                        .content {
+                            font-size: 18px;
+                            margin-bottom: 1rem;
+                        }
+
+                        .agent-list {
+
+                            .agent-item {
+                                margin-top: 0.5rem;
+
+                                &.disabled {
+                                    a {
+                                        color: #aaa;
+
+                                        &:hover {
+                                            cursor: not-allowed;
+                                        }
+                                    }
+                                }
+
+                                a {
+                                    color: #000;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+
+                    .google-map-wrap {
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.support {
+        .container {
+            .wrapper {
+                .featured-image {
+                    width: 100%;
+                    height: 200px;
+                    background: url('assets/img/featured/featured-image-product.png') no-repeat;
+                    background-size: cover;
+                }
+
+                .inner-content {
+                    margin-top: 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 16px;
+
+                    .help-support {
+                        width: 30%;
+
+                        .title {
+                            font-size: 30px;
+                            font-weight: bold;
+                            margin-bottom: 2rem;
+                        }
+
+                        .number {
+                            font-size: 30px;
+                            font-weight: bold;
+                            margin-bottom: 2rem;
+                        }
+                    }
+
+                    .support-form {
+                        width: 50%;
+                        border-left: 2px solid #555;
+                        border-right: 2px solid #555;
+                        padding: 0 3rem;
+                        margin-top: 4rem;
+
+                        .tip1 {
+                            margin-bottom: 1rem;
+                        }
+
+                        .tip2 {
+                            margin-bottom: 2rem;
+                        }
+
+                        .form-wrap {
+                            .form-group {
+                                display: flex;
+                                justify-content: space-between;
+                                margin-bottom: 1rem;
+                                
+                                .label {
+                                    width: 19%;
+                                }
+
+                                .form-control {
+                                    width: 80%;
+
+                                    input {
+                                        width: 100%;
+                                        border: none;
+                                        background-color: #fbd600;
+                                        line-height: 20px;
+
+                                        &:focus {
+                                            outline: none;
+                                        }
+                                    }
+
+                                    textarea {
+                                        width: 100%;
+                                        border: none;
+                                        background-color: #fbd600;
+                                        min-height: 100px;
+
+                                        &:focus {
+                                            outline: none;
+                                        }
+                                    }
+                                }
+                            }
+
+                            button {
+                                margin-left: 20%;
+                                background-color: #fbd600;
+                                border: none;
+                                padding: 0.5rem 1rem;
+                            }
+                        }
+                    }
+
+                    .nothing {
+                        width: 20%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.profile {
+        .container {
+            .wrapper {
+                .featured-image {
+                    width: 100%;
+                    height: 200px;
+                    background: url('assets/img/featured/featured-image-profile.png') no-repeat;
+                    background-size: cover;
+                }
+
+                .inner-content {
+                    margin-top: 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 16px;
+
+                    .profile-info-wrap {
+                        width: 20%;
+
+                        .title {
+                            font-size: 32px;
+                            font-weight: 800;
+                            margin-bottom: 1rem;
+                        }
+
+                        .profile-info {
+                            background-color: $primary_grey_color;
+
+                            .profile-picture {
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .information {
+                                padding: 1rem;
+
+                                .subtitle {
+                                    font-size: 22px;
+                                    font-weight: 800;
+                                    margin-bottom: 1rem;
+                                }
+
+                                .label {
+                                    font-size: 18px;
+                                    font-weight: 800;
+                                }
+
+                                .history {
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+
+                    .profile-dashboard-wrap {
+                        width: 75%;
+
+                        .subtitle {
+                            font-size: 24px;
+                            font-weight: 800;
+                            margin-bottom: 1rem;
+                        }
+
+                        .content {
+                            .tap-wrap {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                flex-wrap: wrap;
+        
+                                .tab-icon {
+                                    display: flex;
+                                    align-items: center;
+                                    background-color: #fbd600;
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    width: 15.5% ;
+                                    height: 90px;
+                                    box-shadow: 1px 1px 10px #ddd;
+                                    padding: 3.5% 5px;
+                                    
+                                    div {
+                                        margin: 0 auto;
+                                        text-align: center;
+                                    }
+        
+                                    &.active {
+                                        background-color: #000;
+                                        color: #fbd600;
+                                    }
+        
+                                    &:hover {
+                                        cursor: pointer;
+                                        box-shadow: 1px 1px 10px #aaa;
+                                    }
+                                }
+                            }
+        
+                            .tab-content {
+                                margin-top: 1.5rem;
+                                font-size: 16px;
+        
+                                .tab-content-wrap {
+                                    display: flex;
+                                    justify-content: space-between;
+        
+                                    .beneficiary-management {
+                                        width: 60%;
+
+                                        .tab-content-title {
+                                            font-size: 20px;
+                                            font-weight: bold;
+                                            margin-bottom: 1rem;
+                                            margin-top: 1rem;
+                                        }
+
+                                        .beneficiary-wrap {
+                                            .form-inline {
+                                                display: flex;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                                margin-top: 1rem;
+    
+                                                .label {
+                                                    width: 31%;
+                                                    font-weight: 600;
+                                                }
+    
+                                                .form-input {
+                                                    width: 66%;
+    
+                                                    input {
+                                                        width: 100%;
+                                                        border: none;
+                                                        height: 25px;
+                                                        background-color: #fbd600;
+
+                                                        &:focus {
+                                                            outline: none;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }   
+
+                                    .beneficiary-mobile {
+                                        width: 36%;
+
+                                        .tab-content-title {
+                                            font-size: 20px;
+                                            font-weight: bold;
+                                            margin-bottom: 1rem;
+                                            margin-top: 1rem;
+                                        }
+
+                                        .beneficiary-wrap {
+                                            .form-inline {
+                                                display: flex;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                                margin-top: 1rem;
+    
+                                                .label {
+                                                    width: 22%;
+                                                    font-weight: 600;
+                                                }
+    
+                                                .form-input {
+                                                    width: 78%;
+    
+                                                    input {
+                                                        width: 100%;
+                                                        border: none;
+                                                        height: 25px;
+                                                        background-color: #fbd600;
+
+                                                        &:focus {
+                                                            outline: none;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .sub-tabs-wrap {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        width: 100%;
+
+                                        .sub-tab {
+                                            width: 15%;
+
+                                            .sub-tab-item {
+                                                background-color: #000;
+                                                color: #fbd600;
+                                                text-align: center;
+                                                padding: 0.5rem;
+                                                font-size: 16px;
+                                                margin-bottom: 1rem;
+                                            }
+                                        }
+                                    }
+                                    // tab 3 
+                                    .domestic-content {
+                                        width: 100%;
+
+                                        form {
+                                            display: flex;
+                                            justify-content: space-between;
+                                        }
+
+                                        .wallet {
+                                            border-right:1px solid #000;
+                                            width: 42%;
+                                            padding-right: 3rem;
+
+                                            .form-input {
+                                                width: 58%;
+                                            }
+                                        }
+
+                                        .beneficiary {
+                                            width: 58%;
+                                            padding-left: 3rem;
+
+                                            .form-input {
+                                                width: 55%;
+                                            }
+                                        }
+
+                                        .form-inline {
+                                            display: flex;
+                                            justify-content: space-between;
+                                            padding-bottom: 1rem;
+                                        }
+                                    }
+
+                                    .value-content {
+                                        width: 100%;
+
+                                        form {
+                                            display: flex;
+                                            justify-content: space-between;
+                                        }
+
+                                        .wallet {
+                                            border-right:1px solid #000;
+                                            width: 42%;
+                                            padding-right: 3rem;
+
+                                            .form-input {
+                                                width: 58%;
+                                            }
+                                        }
+
+                                        .beneficiary {
+                                            width: 58%;
+                                            padding-left: 3rem;
+
+                                            .label {
+                                                width: 35%;
+                                            }
+
+                                            .form-input {
+                                                width: 52%;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .beneficiary-description {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    margin-top: 3rem;
+
+                                    .description {
+                                        width: 70%;
+                                        font-weight: 600;
+                                    }
+
+                                    .btn-group {
+                                        display: flex;
+                                        justify-content: flex-end;
+                                        width: 20%;
+
+                                        button {
+                                            background-color: #fbd600;
+                                            padding: 0.5rem 1rem;
+                                            border: none;
+                                            margin-left: 1rem;
+                                            height: 30px;
+                                            font-weight: 600;
+
+                                            &:focus {
+                                                outline: none;
+                                            }
+
+                                            &:hover {
+                                                cursor: pointer;
+                                            }
+                                        }
+                                    }
+                                }
+                                // tab 3 
+                                .domestic-title {
+                                    font-size: 20px;
+                                    font-weight: bold;
+                                    margin-bottom: 1rem;
+                                    margin-top: 1rem;
+                                }
+                                // tab 5
+                                .value-added-title-sub {
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    margin-bottom: 1rem;
+                                    margin-top: 1rem;
+                                }
+
+                                .value-added-title {
+                                    font-size: 20px;
+                                    font-weight: bold;
+                                    margin-bottom: 1rem;
+                                    margin-top: 1rem;
+                                }
+                                // tab 4
+                                .wallet-pin-title {
+                                    font-size: 20px;
+                                        font-weight: bold;
+                                        margin-bottom: 1rem;
+                                        margin-top: 1rem;
+                                }
+
+                                .wallet-pin {
+                                    width: 60%;
+
+                                    .form-input {
+                                        width: 65%;
+                                    }
+
+                                    .submit-inline {
+                                        display: flex;
+                                        justify-content: flex-end;
+
+                                        button {
+                                            margin-left: 1rem;
+                                        }
+                                    }
+                                }
+
+                                .cash-out {
+                                    position: relative;
+
+                                    .title {
+                                        font-size: 20px;
+                                        font-weight: 800;
+                                    }
+
+                                    .cash-out-content {
+                                        margin-top: 1rem;
+                                        display: flex;
+                                        justify-content: space-between;
+
+                                        form {
+                                            width: 50%;
+                                            border-right: 1px solid #000;
+                                            padding-right: 3rem;
+                                        }
+
+                                        .form-inline {
+                                            .label {
+                                                width: 40%;
+                                            }
+
+                                            .form-input {
+                                                width: 55%;
+                                            }
+                                        }
+
+                                        .page-background {
+                                            width: 35%;
+                                            margin-top: 7%;
+                                            img {
+                                                width: 100%;
+                                            }
+                                        }
+                                    } 
+                                }
+                            }
+
+                            .form-inline {
+                                display: flex;
+                                justify-content: space-between;
+                                padding-bottom: 1rem;
+                            }
+
+                            input {
+                                width: 100%;
+                                height: 25px;
+                                background-color: #fbd600;
+                                border: none;
+                                padding-left: 0.5rem;
+
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+
+                            select {
+                                width: 100%;
+                                height: 25px;
+                                background-color: #fbd600;
+                                border: none;
+                                padding-left: 0.5rem;
+
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+
+                            button {
+                                background-color: #fbd600;
+                                padding: 0.5rem 1rem;
+                                border: none;
+                                height: 30px;
+                                font-weight: 600;
+
+                                &:focus {
+                                    outline: none;
+                                }
+
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.profile1 {
+        .container {
+            .wrapper {
+                .featured-image {
+                    width: 100%;
+                    height: 200px;
+                    background: url('assets/img/featured/featured-image-profile.png') no-repeat;
+                    background-size: cover;
+                }
+
+                .inner-content {
+                    margin-top: 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 16px;
+
+                    .profile-info-wrap {
+                        width: 20%;
+
+                        .title {
+                            font-size: 32px;
+                            font-weight: 800;
+                            margin-bottom: 1rem;
+                        }
+
+                        .profile-info {
+                            background-color: $primary_grey_color;
+
+                            .profile-picture {
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .information {
+                                padding: 1rem;
+
+                                .subtitle {
+                                    font-size: 22px;
+                                    font-weight: 800;
+                                    margin-bottom: 1rem;
+                                }
+
+                                .label {
+                                    font-size: 18px;
+                                    font-weight: 800;
+                                }
+
+                                .history {
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+
+                    .profile-dashboard-wrap {
+                        width: 75%;
+                        position: relative;
+
+                        .subtitle {
+                            font-size: 24px;
+                            font-weight: 800;
+                            margin-bottom: 1rem;
+                        }
+
+                        .content {
+                            .tap-wrap {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                flex-wrap: wrap;
+        
+                                .tab-icon {
+                                    display: flex;
+                                    align-items: center;
+                                    background-color: #fbd600;
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    width: 18.5% ;
+                                    height: 90px;
+                                    box-shadow: 1px 1px 10px #ddd;
+                                    padding: 3.5% 10px;
+                                    
+                                    div {
+                                        margin: 0 auto;
+                                        text-align: center;
+                                    }
+        
+                                    &.active {
+                                        background-color: #000;
+                                        color: #fbd600;
+                                    }
+        
+                                    &:hover {
+                                        cursor: pointer;
+                                        box-shadow: 1px 1px 10px #aaa;
+                                    }
+                                }
+                            }
+        
+                            .tab-content {
+                                margin-top: 1.5rem;
+                                font-size: 16px;
+        
+                                .electricity {
+                                    position: relative;
+
+                                    .title {
+                                        font-size: 20px;
+                                        font-weight: 800;
+                                    }
+
+                                    .electricity-content {
+                                        margin-top: 1rem;
+                                        display: flex;
+                                        justify-content: space-between;
+
+                                        form {
+                                            width: 50%;
+                                            border-right: 1px solid #000;
+                                            padding-right: 3rem;
+                                        }
+
+                                        .form-inline {
+                                            .label {
+                                                width: 40%;
+                                            }
+
+                                            .form-input {
+                                                width: 55%;
+                                            }
+                                        }
+
+                                        .page-background {
+                                            width: 35%;
+                                            margin-top: 7%;
+                                            img {
+                                                width: 100%;
+                                            }
+                                        }
+                                    } 
+                                }
+
+                                .airtime {
+                                    position: relative;
+
+                                    .title {
+                                        font-size: 20px;
+                                        font-weight: 800;
+                                    }
+
+                                    .airtime-content {
+                                        margin-top: 1rem;
+                                        display: flex;
+                                        justify-content: space-between;
+
+                                        form {
+                                            width: 50%;
+                                            border-right: 1px solid #000;
+                                            padding-right: 3rem;
+                                        }
+
+                                        .form-inline {
+                                            .label {
+                                                width: 40%;
+                                            }
+
+                                            .form-input {
+                                                width: 55%;
+                                            }
+                                        }
+
+                                        .page-background {
+                                            width: 35%;
+                                            margin-top: 7%;
+                                            img {
+                                                width: 100%;
+                                            }
+                                        }
+                                    } 
+                                }
+                            }
+
+                            .form-inline {
+                                display: flex;
+                                justify-content: space-between;
+                                padding-bottom: 1rem;
+                            }
+
+                            input {
+                                width: 100%;
+                                height: 25px;
+                                background-color: #fbd600;
+                                border: none;
+                                padding-left: 0.5rem;
+
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+
+                            select {
+                                width: 100%;
+                                height: 25px;
+                                background-color: #fbd600;
+                                border: none;
+                                padding-left: 0.5rem;
+
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+
+                            button {
+                                background-color: #fbd600;
+                                padding: 0.5rem 1rem;
+                                border: none;
+                                height: 30px;
+                                font-weight: 600;
+
+                                &:focus {
+                                    outline: none;
+                                }
+
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.newsroom {
+        .container {
+            .wrapper {
+                .featured-image {
+                    width: 100%;
+                    height: 200px;
+                    background: url('assets/img/featured/featured-image-profile.png') no-repeat;
+                    background-size: cover;
+                }
+
+                .inner-content {
+                    margin-top: 2rem;
+                    font-size: 16px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .description {
+                        width: 60%;
+                        column-count: 3;
+
+                        .title {
+                            font-size: 24px;
+                            font-weight: bold;
+                            margin-bottom: 2rem;
+                        }
+                    }
+
+                    .youtube {
+                        margin-left: 1rem;
+                        width: 40%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.faq {
+        .container {
+            .wrapper {
+                .featured-image {
+                    width: 100%;
+                    height: 200px;
+                    background: url('assets/img/featured/featured-image-profile.png') no-repeat;
+                    background-size: cover;
+                }
+
+                .inner-content {
+                    margin-top: 2rem;
+                    font-size: 16px;
+
+                    .title {
+                        font-size: 32px;
+                        font-weight: bold;
+                        margin-bottom: 2rem;
+                    }
+
+                    .tap-wrap {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+
+                        .tab-icon {
+                            display: flex;
+                            align-items: center;
+                            background-color: #fbd600;
+                            font-size: 16px;
+                            font-weight: 600;
+                            width: 13.5%;
+                            padding: 3% 5px;
+                            height: 113px;
+                            box-shadow: 1px 1px 10px #ddd;
+                            
+                            div {
+                                margin: 0 auto;
+                                text-align: center;
+                            }
+
+                            &.active {
+                                background-color: #000;
+                                color: #fbd600;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                                box-shadow: 1px 1px 10px #aaa;
+                            }
+                        }
+                    }
+
+                    .tab-content {
+                        margin-top: 1.5rem;
+
+                        .tab-content-wrap {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .subtitle {
+                                font-size: 18px;
+                                font-weight: bold;
+                                margin-bottom: 2rem;
+                            }
+
+                            .answer {
+                                column-count: 4;
+                                font-size: 16px;
+                                line-height: 24px;
+                                margin-top: 2rem;
+
+                                .emphasis {
+                                    font-weight: bold;
+                                    margin-top: 1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tab-icon {
+        box-shadow: 1px 1px 10px #ddd;
+    }
+}
+
+.footer {
+    margin-top: 1rem;
+    text-align: right;
+
+    a {
+        text-decoration: none;
+        color: #000;
+        font-weight: 600;
+    }
+}
+
+.sidenav-toggle {
+    display: none;
+}
+
+@media only screen and (max-width: $breakpoint-device-large) {
+    .page {
+        &.home {
+            nav {                
+                .menu-wrapper {
+    
+                    a {
+                        padding: 1.5rem;
+    
+                        .menu-item-title {
+                            bottom: -2.5rem;
+                        }
+                    }
+    
+                    a.logo {
+                        padding: 2.5rem;
+                    }
+                }
+    
+                .menu-description {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        &.about {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tab-content {
+                            .tab-content-wrap {
+                                .blog-wrap {
+                                    font-size: 16px;
+                                    div {
+                                        font-size: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.product {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                display: flex;
+                                align-items: center;
+                                background-color: #fbd600;
+                                font-size: 12px;
+                                font-weight: 600;
+                                width: 11.5% ;
+                                height: 81px;
+                                padding: 3% 5px;
+                                box-shadow: 1px 1px 10px #ddd;
+                                
+                                div {
+                                    margin: 0 auto;
+                                    text-align: center;
+                                }
+    
+                                &.active {
+                                    background-color: #000;
+                                    color: #fbd600;
+                                }
+    
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.network {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .agent-wrap {
+                            width: 30%;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.support {
+            .container {
+                .wrapper {    
+                    .inner-content {
+                        font-size: 14px;
+                        .support-form {
+                            padding: 0 2rem;
+
+                            .form-wrap {
+                                .form-group {
+                                    
+                                    .label {
+                                        width: 19%;
+                                        
+                                    }
+    
+                                    .form-control {
+                                        width: 70%;
+                                    }
+                                }
+
+                                button {
+                                    margin-left: 30%;
+
+                                    &:focus {
+                                        outline: none;
+                                    }
+                                }
+                            }
+                        }
+
+                        .nothing {
+                            width: 15%;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.newsroom {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        
+                    }
+                }
+            }
+        }
+
+        &.faq {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }    
+        
+        &.profile {
+            .container {
+                .wrapper {
+                    .inner-content {
+    
+                        .profile-info-wrap {
+    
+                            .profile-info {
+    
+                                .profile-picture {
+                             
+                                }
+    
+                                .information {
+                                    
+                                }
+                            }
+                        }
+    
+                        .profile-dashboard-wrap {
+                            
+                            .subtitle {
+                                
+                            }
+    
+                            .content {
+                                .tap-wrap {
+            
+                                    .tab-icon {
+                                        
+                                    }
+                                }
+            
+                                .tab-content {
+                                    font-size: 12px;
+
+                                    .tab-content-wrap {
+            
+                                        .beneficiary-management {
+    
+                                            .tab-content-title {
+                                               
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                    }
+                                                }
+                                            }
+                                        }   
+    
+                                        .beneficiary-mobile {
+    
+                                            .tab-content-title {
+    
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+                                                        
+                                                        input {
+    
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+    
+                                        .sub-tabs-wrap {
+    
+                                            .sub-tab {
+    
+                                                .sub-tab-item {
+                                                    
+                                                }
+                                            }
+                                        }
+                                        // tab 3 
+                                        .domestic-content {
+                                            
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                    width: 50%;
+                                                }
+                                            }
+    
+                                            .form-inline {
+                                                
+                                            }
+                                        }
+    
+                                        .value-content {
+    
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+                                                padding-right: 1.5rem;
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+                                                padding-left: 1.5rem;
+                                                .form-input {
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+    
+                                    .beneficiary-description {
+    
+                                        .description {
+                                            
+                                        }
+    
+                                        .btn-group {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                    // tab 3 
+                                    .domestic-title {
+                                        
+                                    }
+                                    // tab 5
+                                    .value-added-title-sub {
+                                       
+                                    }
+    
+                                    .value-added-title {
+                                        
+                                    }
+                                    // tab 4
+                                    .wallet-pin-title {
+                                        
+                                    }
+    
+                                    .wallet-pin {
+    
+                                        .form-input {
+                                           
+                                        }
+    
+                                        .submit-inline {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.profile1 {
+            .container {
+                .wrapper {
+                    .inner-content {
+    
+                        .profile-info-wrap {
+    
+                            .profile-info {
+    
+                                .profile-picture {
+                             
+                                }
+    
+                                .information {
+                                    
+                                }
+                            }
+                        }
+    
+                        .profile-dashboard-wrap {
+                            
+                            .subtitle {
+                                
+                            }
+    
+                            .content {
+                                .tap-wrap {
+            
+                                    .tab-icon {
+                                        font-size: 12px;
+                                        height: 80px;
+                                    }
+                                }
+            
+                                .tab-content {
+                                    font-size: 12px;
+
+                                    .tab-content-wrap {
+            
+                                        .beneficiary-management {
+    
+                                            .tab-content-title {
+                                               
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                    }
+                                                }
+                                            }
+                                        }   
+    
+                                        .beneficiary-mobile {
+    
+                                            .tab-content-title {
+    
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+                                                        
+                                                        input {
+    
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+    
+                                        .sub-tabs-wrap {
+    
+                                            .sub-tab {
+    
+                                                .sub-tab-item {
+                                                    
+                                                }
+                                            }
+                                        }
+                                        // tab 3 
+                                        .domestic-content {
+                                            
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                    width: 50%;
+                                                }
+                                            }
+    
+                                            .form-inline {
+                                                
+                                            }
+                                        }
+    
+                                        .value-content {
+    
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+                                                padding-right: 1.5rem;
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+                                                padding-left: 1.5rem;
+                                                .form-input {
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+    
+                                    .beneficiary-description {
+    
+                                        .description {
+                                            
+                                        }
+    
+                                        .btn-group {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                    // tab 3 
+                                    .domestic-title {
+                                        
+                                    }
+                                    // tab 5
+                                    .value-added-title-sub {
+                                       
+                                    }
+    
+                                    .value-added-title {
+                                        
+                                    }
+                                    // tab 4
+                                    .wallet-pin-title {
+                                        
+                                    }
+    
+                                    .wallet-pin {
+    
+                                        .form-input {
+                                           
+                                        }
+    
+                                        .submit-inline {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // profile responsive
+    .page.profile .container .wrapper .inner-content .profile-dashboard-wrap .content .tap-wrap .tab-icon {
+        font-size: 12px;
+        height: 72px;
+    }
+
+    .page.profile .container .wrapper .inner-content .profile-dashboard-wrap .content .tab-content .tab-content-wrap .sub-tabs-wrap .sub-tab .sub-tab-item {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: $breakpoint-device) {
+    .page {
+        &.home {
+            nav {                
+                .menu-wrapper {
+    
+                    a {
+                        padding: 1rem;
+    
+                        .menu-item-title {
+                            font-size: 12px;
+                        }
+                    }
+    
+                    a.logo {
+                        padding: 1.8rem;
+                    }
+                }
+    
+                .menu-description {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        &.about {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                font-size: 10.5px;
+                            }
+                        }
+
+                        .tab-content {
+                            .tab-content-wrap {
+                                display: block;
+
+                                .pic-wrap {
+                                    width: 100%;
+                                }
+
+                                .blog-wrap {
+                                    margin-top: 2rem;
+                                    margin-left: 0;
+                                    width: 100%;
+                                    column-count: 1 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.product {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                height: 70px;
+                                font-size: 12px;
+                            }
+                        }
+
+                        .tab-content {
+                            .tab-content-wrap {
+                                display: block;
+
+                                .picture {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.network {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        display: block;
+                        .agent-wrap {
+                            width: 100%;
+                        }
+
+                        .google-map-wrap {
+                            margin-top: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.support {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .help-support {
+                            .title {
+                                font-size: 22px;
+                            }
+
+                            .contact-center {
+                                .number {
+                                    font-size: 22px;
+                                }
+                            }
+                        }
+
+                        .support-form {
+                            width: 80%;
+                            padding: 0 1.5rem;
+
+                            .form-wrap {
+                                .form-group {
+                                    .form-control {
+                                        width: 65%;
+                                    }
+                                }
+
+                                button {
+                                    margin-left: 35%;
+                                }
+                            }
+                        }
+
+                        .nothing {
+                            width: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.profile {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        display: block;
+                        font-size: 14px;
+
+                        .profile-info-wrap {
+                            width: 100%;
+
+                            .profile-info {
+                                display: flex;
+                                justify-content: flex-start; 
+
+                                .profile-picture {
+                                    width: 35%;
+                                }
+
+                                .information {
+                                    
+                                }
+                            }
+                        }
+
+                        .profile-dashboard-wrap {
+                            width: 100%;
+                            margin-top: 2rem;
+    
+                            .subtitle {
+                                
+                            }
+    
+                            .content {
+                                .tap-wrap {
+            
+                                    .tab-icon {
+                                        
+                                    }
+                                }
+            
+                                .tab-content {
+                                    
+                                    .settings {
+                                        display: block;
+                                    }
+
+                                    .tab-content-wrap {
+            
+                                        .beneficiary-management {
+                                            width: 100%;
+                                            .tab-content-title {
+                                               
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                    }
+                                                }
+                                            }
+                                        }   
+    
+                                        .beneficiary-mobile {
+                                            width: 100%;
+                                            .tab-content-title {
+
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                        input {
+    
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+    
+                                        .sub-tabs-wrap {
+    
+                                            .sub-tab {
+    
+                                                .sub-tab-item {
+                                                    
+                                                }
+                                            }
+                                        }
+                                        // tab 3 
+                                        .domestic-content {
+                                            
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .form-inline {
+                                                
+                                            }
+                                        }
+    
+                                        .value-content {
+                                            
+                                            form {
+                                                display: block;    
+                                            }
+    
+                                            .wallet {
+                                                width: 100%;
+                                                padding-right: 0;
+                                                border-right: 0;
+                                                .form-input {
+                                                    width: 58%;
+                                                }
+                                            }
+    
+                                            .beneficiary {
+                                                width: 100%;
+                                                padding-left: 0;
+
+                                                .form-input {
+                                                    width: 58%;
+                                                }
+                                            }
+                                        }
+                                    }
+    
+                                    .beneficiary-description {
+    
+                                        .description {
+                                            width: 60%;
+                                        }
+    
+                                        .btn-group {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                    // tab 3 
+                                    .domestic-title {
+                                        
+                                    }
+                                    // tab 5
+                                    .value-added-title-sub {
+                                       
+                                    }
+    
+                                    .value-added-title {
+                                        
+                                    }
+                                    // tab 4
+                                    .wallet-pin-title {
+                                        
+                                    }
+    
+                                    .wallet-pin {
+    
+                                        .form-input {
+                                           
+                                        }
+    
+                                        .submit-inline {
+    
+                                            button {
+
+                                            }
+                                        }
+                                    }
+
+                                    .cash-out {
+                                        position: relative;
+    
+                                        .title {
+                                            font-size: 20px;
+                                            font-weight: 800;
+                                        }
+    
+                                        .cash-out-content {
+                                            margin-top: 1rem;
+                                            display: block;
+    
+                                            form {
+                                                width: 100%;
+                                                border-right: none ;
+                                                padding-right: 0;
+                                            }
+    
+                                            .form-inline {
+                                                .label {
+                                                    width: 40%;
+                                                }
+    
+                                                .form-input {
+                                                    width: 55%;
+                                                }
+                                            }
+    
+                                            .page-background {
+                                                width: 100%;
+                                                margin-top: 7%;
+                                                text-align: right;
+                                                img {
+                                                    width: 70%;
+                                                }
+                                            }
+                                        } 
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.profile1 {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        display: block;
+                        font-size: 14px;
+
+                        .profile-info-wrap {
+                            width: 100%;
+
+                            .profile-info {
+                                display: flex;
+                                justify-content: flex-start; 
+
+                                .profile-picture {
+                                    width: 35%;
+                                }
+
+                                .information {
+                                    
+                                }
+                            }
+                        }
+
+                        .profile-dashboard-wrap {
+                            width: 100%;
+                            margin-top: 2rem;
+    
+                            .subtitle {
+                                
+                            }
+    
+                            .content {
+                                .tap-wrap {
+            
+                                    .tab-icon {
+                                        
+                                    }
+                                }
+            
+                                .tab-content {
+                                    .electricity {
+                                        position: relative;
+    
+                                        .title {
+                                            font-size: 20px;
+                                            font-weight: 800;
+                                        }
+    
+                                        .electricity-content {
+                                            margin-top: 1rem;
+                                            display: block;
+    
+                                            form {
+                                                width: 100%;
+                                                border-right: none ;
+                                                padding-right: 0;
+                                            }
+    
+                                            .form-inline {
+                                                .label {
+                                                    width: 40%;
+                                                }
+    
+                                                .form-input {
+                                                    width: 55%;
+                                                }
+                                            }
+    
+                                            .page-background {
+                                                width: 100%;
+                                                margin-top: 7%;
+                                                text-align: right;
+                                                img {
+                                                    width: 70%;
+                                                }
+                                            }
+                                        } 
+                                    }
+
+                                    .airtime {
+                                        position: relative;
+    
+                                        .title {
+                                            font-size: 20px;
+                                            font-weight: 800;
+                                        }
+    
+                                        .airtime-content {
+                                            margin-top: 1rem;
+                                            display: block;
+    
+                                            form {
+                                                width: 100%;
+                                                border-right: none ;
+                                                padding-right: 0;
+                                            }
+    
+                                            .form-inline {
+                                                .label {
+                                                    width: 40%;
+                                                }
+    
+                                                .form-input {
+                                                    width: 55%;
+                                                }
+                                            }
+    
+                                            .page-background {
+                                                width: 100%;
+                                                margin-top: 7%;
+                                                text-align: right;
+                                                img {
+                                                    width: 70%;
+                                                }
+                                            }
+                                        } 
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.newsroom {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        display: block;
+                        .description {
+                            width: 100%;
+                            column-count: 2;
+                        }
+
+                        .youtube {
+                            width: 100%;
+                            margin-top: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.faq {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                width: 24%;
+                                height: 70px;
+                                margin-bottom: 1rem;
+                            }
+                        }
+
+                        .tab-content {
+                            .tab-content-wrap {
+                                .answer {
+                                    margin-top: 1rem;
+                                    column-count: 3;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1240px) {
+    // product
+    .page.product .container .wrapper .inner-content .tap-wrap .tab-icon {
+        width: 22%;
+        height: 81px;
+        padding: 3% 5px;
+        margin-bottom: 1rem;
+    }
+}   
+
+@media only screen and (max-width: 990px) {
+    .page.profile .container .wrapper .inner-content .profile-dashboard-wrap .content .tab-content .tab-content-wrap .domestic-content form {
+        display: block;
+    }
+
+    .page.profile .container .wrapper .inner-content .profile-dashboard-wrap .content .tab-content .tab-content-wrap .domestic-content form .wallet {
+        width: 100%;
+        padding-right: 0;
+        border: none;
+
+        .form-input {
+            width: 58%;
+        }
+    }
+
+    .page.profile .container .wrapper .inner-content .profile-dashboard-wrap .content .tab-content .tab-content-wrap .domestic-content form .beneficiary {
+        width: 100%;
+        padding-left: 0;
+
+        .form-input {
+            width: 58%;
+        }
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    .page.profile .container .wrapper .inner-content .profile-dashboard-wrap .content .tap-wrap .tab-icon {
+        font-size: 10px;
+    }
+
+    .page.profile .container .wrapper .inner-content .profile-dashboard-wrap .content .tab-content .tab-content-wrap .sub-tabs-wrap .sub-tab .sub-tab-item {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .body {
+        padding: 2rem 1rem;
+    }
+
+    .sidenav {
+        display: none;
+    }
+
+    .sidenav-toggle {
+        display: block;
+        position: absolute;
+        top: -2.5rem;
+        left: 0;
+        font-size: 22px;
+    }
+
+    .sidenav-show {
+        display: block;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+
+        .back-opacity {
+            padding-bottom: 1rem;
+            background-color: #ddd;
+            box-shadow: 3px 3px 5px #222;
+        }
+
+        .logo-wrapper {
+            text-align: center;
+        }
+
+        .img-wrap {
+            margin-left: 1.5rem;
+        }
+
+        .indicator {
+            display: none;
+        }
+
+        .social-wrapper {
+            justify-content: flex-start;
+            margin-left: 0.5rem;
+
+            a {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .page {
+        &.splash {    
+            .container {    
+                .inner-content {
+                    .wrapper {
+    
+                        .text {
+                            font-size: 65px;
+                            margin-right: 1rem;
+    
+                            .text3 {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.home {
+            nav {                
+                .menu-wrapper {
+    
+                    a {
+                        padding: 0.7rem;
+    
+                        .menu-item-title {
+                            font-size: 10px;
+                            bottom: -1.8rem;
+                        }
+                    }
+    
+                    a.logo {
+                        padding: 1.3rem;
+                    }
+                }
+    
+                .menu-description {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        &.about {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                width: 19%;
+                            }
+                        }
+
+                        .tab-content {
+                            .tab-content-wrap {
+                                display: block;
+
+                                .blog-wrap {
+                                    margin-top: 2rem;
+                                    margin-left: 0;
+                                    width: 100%;
+                                    column-count: 1 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.product {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                height: 70px;
+                                width: 24%;
+                                margin-bottom: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.network {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        
+                    }
+                }
+            }
+        }
+
+        &.support {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        display: block;
+
+                        .help-support {
+                            width: 100%;
+                        }
+
+                        .support-form {
+                            border: none;
+                            width: 100%;
+                            padding: 0;
+                        }
+
+                        .nothing {
+
+                        }
+                    }
+                }
+            }
+        }
+
+        &.profile {
+            .container {
+                .wrapper {
+                    .inner-content {
+
+                        .profile-info-wrap {
+
+                            .profile-info {
+                                display: flex;
+                                justify-content: flex-start; 
+
+                                .profile-picture {
+                                    width: 45%;
+                                }
+
+                                .information {
+                                    
+                                }
+
+                                .email-decoration {
+                                    text-decoration: underline;
+                                    word-break: break-all;
+                                }
+                            }
+                        }
+
+                        .profile-dashboard-wrap {
+                            width: 100%;
+                            margin-top: 2rem;
+    
+                            .subtitle {
+                                
+                            }
+    
+                            .content {
+                                .tap-wrap {
+            
+                                    .tab-icon {
+                                        
+                                    }
+                                }
+            
+                                .tab-content {
+            
+                                    .tab-content-wrap {
+            
+                                        .beneficiary-management {
+    
+                                            .tab-content-title {
+                                               
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                    }
+                                                }
+                                            }
+                                        }   
+    
+                                        .beneficiary-mobile {
+    
+                                            .tab-content-title {
+
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                        input {
+    
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+    
+                                        .sub-tabs-wrap {
+    
+                                            .sub-tab {
+    
+                                                .sub-tab-item {
+                                                    
+                                                }
+                                            }
+                                        }
+                                        // tab 3 
+                                        .domestic-content {
+                                            
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .form-inline {
+                                                
+                                            }
+                                        }
+    
+                                        .value-content {
+    
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+    
+                                    .beneficiary-description {
+    
+                                        .description {
+                                            width: 45%;
+                                        }
+    
+                                        .btn-group {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                    // tab 3 
+                                    .domestic-title {
+                                        
+                                    }
+                                    // tab 5
+                                    .value-added-title-sub {
+                                       
+                                    }
+    
+                                    .value-added-title {
+                                        
+                                    }
+                                    // tab 4
+                                    .wallet-pin-title {
+                                        
+                                    }
+    
+                                    .wallet-pin {
+                                        width: 100%;
+                                        .form-input {
+                                           
+                                        }
+    
+                                        .submit-inline {
+    
+                                            button {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.newsroom {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .description {
+                            column-count: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.faq {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tab-content {
+                            margin-top: 0;
+
+                            .tab-content-wrap {
+                                .answer {
+                                    margin-top: 1rem;
+                                    column-count: 2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.profile1 {
+            .container {
+                .wrapper {
+                    .inner-content {
+
+                        .profile-info-wrap {
+
+                            .profile-info {
+                                display: flex;
+                                justify-content: flex-start; 
+
+                                .profile-picture {
+                                    width: 45%;
+                                }
+
+                                .information {
+                                    
+                                }
+
+                                .email-decoration {
+                                    text-decoration: underline;
+                                    word-break: break-all;
+                                }
+                            }
+                        }
+
+                        .profile-dashboard-wrap {
+                            width: 100%;
+                            margin-top: 2rem;
+    
+                            .subtitle {
+                                
+                            }
+    
+                            .content {
+                                .tap-wrap {
+            
+                                    .tab-icon {
+                                        
+                                    }
+                                }
+            
+                                .tab-content {
+            
+                                    .tab-content-wrap {
+            
+                                        .beneficiary-management {
+    
+                                            .tab-content-title {
+                                               
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                    }
+                                                }
+                                            }
+                                        }   
+    
+                                        .beneficiary-mobile {
+    
+                                            .tab-content-title {
+
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                        input {
+    
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+    
+                                        .sub-tabs-wrap {
+    
+                                            .sub-tab {
+    
+                                                .sub-tab-item {
+                                                    
+                                                }
+                                            }
+                                        }
+                                        // tab 3 
+                                        .domestic-content {
+                                            
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .form-inline {
+                                                
+                                            }
+                                        }
+    
+                                        .value-content {
+    
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+    
+                                    .beneficiary-description {
+    
+                                        .description {
+                                            width: 45%;
+                                        }
+    
+                                        .btn-group {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                    // tab 3 
+                                    .domestic-title {
+                                        
+                                    }
+                                    // tab 5
+                                    .value-added-title-sub {
+                                       
+                                    }
+    
+                                    .value-added-title {
+                                        
+                                    }
+                                    // tab 4
+                                    .wallet-pin-title {
+                                        
+                                    }
+    
+                                    .wallet-pin {
+                                        width: 100%;
+                                        .form-input {
+                                           
+                                        }
+    
+                                        .submit-inline {
+    
+                                            button {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .page {
+        &.splash {    
+            .container {    
+                .inner-content {
+                    .wrapper {
+                        justify-content: flex-start;
+                        align-items: center;
+    
+                        .text {
+                            text-align: center;
+                            font-size: 50px;
+                            margin-right: 0rem;
+    
+                            .text3 {
+                                font-size: 18px;
+                            }
+                        }
+    
+                        .logo {
+                            img {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.home {
+            nav {                
+                .menu-wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
+                    a {
+                        padding: 2rem;
+                        width: 80%;
+                        margin-top: 1rem;
+    
+                        .menu-item-title {
+                            font-size: 16px;
+                            bottom: -1.8rem;
+                        }
+                    }
+
+                    a.logo {
+                        padding: 2rem;
+                        width: 80%;
+                        margin-top: 1rem;
+    
+                        .menu-item-title {
+                            font-size: 16px;
+                            bottom: -1.8rem;
+                        }
+                    }
+                }
+    
+                .menu-description {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        &.auth {
+            .container {
+                .wrapper {
+                    padding: 1rem;
+                    .auth-form {
+                        form {
+                            .field-wrapper {
+                                display: block;
+                                
+                                padding: .5rem 0;
+                                .form-group {
+                                    &.md-5 {
+                                        width: 100%;
+                                        margin-bottom: 1rem;
+                                    }
+
+                                    &.md-3 {
+                                        width: 100%;
+                                    }
+
+                                    &.md-2 {
+                                        margin-top: 1rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.about {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                height: 70px;
+                                width: 19%;
+                                font-size: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.product {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                font-size: 8px;
+                            }
+                        }
+
+                        .tab-content {
+                            .tab-content-wrap {
+                                .blog {
+                                    column-count: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.network {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        
+                    }
+                }
+            }
+        }
+
+        &.support {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .support-form {
+                            .form-wrap {
+                                .label {
+                                    font-size: 12   px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.profile {
+            .container {
+                .wrapper {
+                    .inner-content {
+
+                        .profile-info-wrap {
+
+                            .profile-info {
+                                display: block;
+
+                                .profile-picture {
+                                    width: 100%;
+                                }
+
+                                .information {
+                                    
+                                }
+                            }
+                        }
+
+                        .profile-dashboard-wrap {
+                            width: 100%;
+                            margin-top: 2rem;
+    
+                            .subtitle {
+                                
+                            }
+    
+                            .content {
+                                .tap-wrap {
+            
+                                    .tab-icon {
+                                        font-size: 10px;
+                                        width: 30%;
+                                        margin-bottom: 1rem;
+                                    }
+                                }
+            
+                                .tab-content {
+            
+                                    .tab-content-wrap {
+            
+                                        .beneficiary-management {
+    
+                                            .tab-content-title {
+                                               
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                    }
+                                                }
+                                            }
+                                        }   
+    
+                                        .beneficiary-mobile {
+    
+                                            .tab-content-title {
+
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                        input {
+    
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+    
+                                        .sub-tabs-wrap {
+    
+                                            .sub-tab {
+    
+                                                .sub-tab-item {
+                                                    font-size: 8px;
+                                                }
+                                            }
+                                        }
+                                        // tab 3 
+                                        .domestic-content {
+                                            
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .form-inline {
+                                                
+                                            }
+                                        }
+    
+                                        .value-content {
+    
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+    
+                                    .beneficiary-description {
+    
+                                        .description {
+                                            
+                                        }
+    
+                                        .btn-group {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                    // tab 3 
+                                    .domestic-title {
+                                        
+                                    }
+                                    // tab 5
+                                    .value-added-title-sub {
+                                       
+                                    }
+    
+                                    .value-added-title {
+                                        
+                                    }
+                                    // tab 4
+                                    .wallet-pin-title {
+                                        
+                                    }
+    
+                                    .wallet-pin {
+    
+                                        .form-input {
+                                            width: 50%;
+                                        }
+    
+                                        .submit-inline {
+    
+                                            button {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.profile1 {
+            .container {
+                .wrapper {
+                    .inner-content {
+
+                        .profile-info-wrap {
+
+                            .profile-info {
+                                display: block;
+
+                                .profile-picture {
+                                    width: 100%;
+                                }
+
+                                .information {
+                                    
+                                }
+                            }
+                        }
+
+                        .profile-dashboard-wrap {
+                            width: 100%;
+                            margin-top: 2rem;
+    
+                            .subtitle {
+                                
+                            }
+    
+                            .content {
+                                .tap-wrap {
+            
+                                    .tab-icon {
+                                        font-size: 10px;
+                                        width: 30%;
+                                        margin-bottom: 1rem;
+                                        height: 60px;
+                                    }
+                                }
+            
+                                .tab-content {
+            
+                                    .tab-content-wrap {
+            
+                                        .beneficiary-management {
+    
+                                            .tab-content-title {
+                                               
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                    }
+                                                }
+                                            }
+                                        }   
+    
+                                        .beneficiary-mobile {
+    
+                                            .tab-content-title {
+
+                                            }
+    
+                                            .beneficiary-wrap {
+                                                .form-inline {
+        
+                                                    .label {
+                                                        
+                                                    }
+        
+                                                    .form-input {
+        
+                                                        input {
+    
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+    
+                                        .sub-tabs-wrap {
+    
+                                            .sub-tab {
+    
+                                                .sub-tab-item {
+                                                    font-size: 8px;
+                                                }
+                                            }
+                                        }
+                                        // tab 3 
+                                        .domestic-content {
+                                            
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .form-inline {
+                                                
+                                            }
+                                        }
+    
+                                        .value-content {
+    
+                                            form {
+                                                
+                                            }
+    
+                                            .wallet {
+    
+                                                .form-input {
+                                                   
+                                                }
+                                            }
+    
+                                            .beneficiary {
+    
+                                                .form-input {
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+    
+                                    .beneficiary-description {
+    
+                                        .description {
+                                            
+                                        }
+    
+                                        .btn-group {
+    
+                                            button {
+    
+                                            }
+                                        }
+                                    }
+                                    // tab 3 
+                                    .domestic-title {
+                                        
+                                    }
+                                    // tab 5
+                                    .value-added-title-sub {
+                                       
+                                    }
+    
+                                    .value-added-title {
+                                        
+                                    }
+                                    // tab 4
+                                    .wallet-pin-title {
+                                        
+                                    }
+    
+                                    .wallet-pin {
+    
+                                        .form-input {
+                                            width: 50%;
+                                        }
+    
+                                        .submit-inline {
+    
+                                            button {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.newsroom {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        
+                    }
+                }
+            }
+        }
+
+        &.faq {
+            .container {
+                .wrapper {
+                    .inner-content {
+                        .tap-wrap {
+                            .tab-icon {
+                                width: 23%;
+                                font-size: 8px;
+                            }
+                        }
+
+                        .tab-content {
+                            .tab-content-wrap {
+                                .answer {
+                                    column-count: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// splash text
+@media only screen and (max-width: 560px) {
+    .page .splash .container .inner-content .wrapper .text {
+        font-size: 50px;
+    }
+}
