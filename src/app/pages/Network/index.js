@@ -74,7 +74,7 @@ class Network extends Component {
                             <div className="google-map-wrap">
                                 <div style={{ height: '100vh', width: '100%' }}>
                                     <GoogleMapReact
-                                        bootstrapURLKeys={{ key: 'AIzaSyDBRuJk4YwJO5trPQuPeTyUm0NA6wj7eU8' }}
+                                        bootstrapURLKeys={{ key: '******' }}
                                         defaultCenter={this.props.center}
                                         defaultZoom={this.props.zoom}
                                     >
